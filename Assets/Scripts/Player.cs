@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public int health;
     public float[] position;
+    public float[] rotation;
 
     public void SavePlayer()
     {
@@ -21,5 +22,11 @@ public class Player : MonoBehaviour
         position.y = data.position[1];
         position.z = data.position[2];
         transform.position = position;
+
+        Vector3 rotation;
+        rotation.x = data.rotation[0];
+        rotation.y = data.rotation[1];
+        rotation.z = data.rotation[2];
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z);
     }
 }
